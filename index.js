@@ -8,8 +8,15 @@ let speed = 5;
 let score = 0;
 let lastPaintTime = 0;
 let snakeArr = [
-    {x: 13, y: 15}
+    {x: 16, y: 18}
 ];
+function playMusic() {
+    musicSound.play();
+  }
+function pauseMusic() {
+    musicSound.pause();
+  }
+
 musicSound.loop = true;
 musicSound.volume = 0.2;
 
@@ -34,13 +41,12 @@ function isCollide(snake) {
         }
     }
     // If you bump into the wall
-    if(snake[0].x >= 18 || snake[0].x <=0 || snake[0].y >= 18 || snake[0].y <=0){
+    if(snake[0].x >= 25 || snake[0].x <=0 || snake[0].y >= 25 || snake[0].y <=0){
         return true;
     }
         
     return false;
 }
-musicSound.play();
 function gameEngine(){
     // Part 1: Updating the snake array & Food
     if(isCollide(snakeArr)){
@@ -49,7 +55,6 @@ function gameEngine(){
         inputDir =  {x: 0, y: 0}; 
         alert("Game Over. Press any key to play again!");
         snakeArr = [{x: 13, y: 15}];
-        musicSound.play();
         score = 0; 
     }
 
@@ -65,7 +70,7 @@ function gameEngine(){
         scoreBox.innerHTML = "Score: " + score;
         snakeArr.unshift({x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y});
         let a = 2;
-        let b = 16;
+        let b = 23;
         food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
     }
 
