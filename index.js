@@ -10,20 +10,11 @@ let lastPaintTime = 0;
 let snakeArr = [
     {x: 13, y: 15}
 ];
+musicSound.loop = true;
+musicSound.volume = 0.2;
 
 food = {x: 6, y: 7};
 
-if (typeof musicSound.loop == 'boolean')
-{
-   musicSound.loop = true;
-}
-else
-{
-   musicSound.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    }, false);
-}
 // Game Functions
 function main(ctime) {
     window.requestAnimationFrame(main);
