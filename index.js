@@ -10,15 +10,21 @@ let lastPaintTime = 0;
 let snakeArr = [
     {x: 16, y: 18}
 ];
-function playMusic() {
-    musicSound.play();
-  }
-function pauseMusic() {
-    musicSound.pause();
-  }
-
 musicSound.loop = true;
 musicSound.volume = 0.2;
+
+function playMusic() {    
+let checkBox = document.getElementById('play-music');
+if (checkBox.checked == true){
+    musicSound.play();
+}
+else {
+    musicSound.pause();
+}
+  }
+
+
+
 
 food = {x: 6, y: 7};
 
@@ -53,9 +59,12 @@ function gameEngine(){
         gameOverSound.play();
         musicSound.pause();
         inputDir =  {x: 0, y: 0}; 
+        setTimeout(() => {
+            alert("Game Over. Press any key to play again!");
+          }, 700);
+       
         snakeArr = [{x: 13, y: 15}];
         score = 0; 
-         alert("Game Over. Press any key to play again!");
     }
 
     // If you have eaten the food, increment the score and regenerate the food
@@ -120,7 +129,6 @@ else{
     hiscoreval = JSON.parse(hiscore);
     hiscoreBox.innerHTML = "HiScore: " + hiscore;
 }
-
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e =>{
     inputDir = {x: 0, y: 1} // Start the game
@@ -153,3 +161,23 @@ window.addEventListener('keydown', e =>{
     }
 
 });
+function up() {
+    inputDir.x = 0;
+    inputDir.y = -1;
+    moveSound.play();
+}
+function down() {
+    inputDir.x = 0;
+    inputDir.y = 1;
+    moveSound.play();
+}
+function left() {
+    inputDir.x = -1;
+    inputDir.y = 0;
+    moveSound.play();
+}
+function right() {
+    inputDir.x = 1;
+    inputDir.y = 0;
+    moveSound.play();
+}
