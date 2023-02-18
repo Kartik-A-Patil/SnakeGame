@@ -10,7 +10,7 @@
  
 }
 
-.body{
+.main-div{
     background: url("./img/bg.jpg"); 
     min-height: 100vh;
     background-size: 100vw 100vh;
@@ -185,24 +185,29 @@
     flex-direction: row;
     justify-content: space-around;
     height: 130px;
-    max-width: 180px;
+    max-width: 220px;
     align-content: space-around;
 }
 
 .con-buttons button{
-    height: 50px;
-    width: 49px;
+    height: 60px;
+    width: 60px;
     background-color: white;
     border: 2px solid #000000;
     border-radius: 10px;
+    margin: 0px;
 }
 .con-buttons button.up{
-    height: 50px;
-    width: 150px;
+    height: 60px;
+    width: 65px;
+    margin: 15px 60px;
 }
 
 @media (max-width: 500px){
-    
+    .main-div{
+        align-items: normal;
+        padding-top: 150px;
+    }
     .music{
         height: 70px;
         width: 170px;
@@ -212,8 +217,8 @@
     
     #scoreBox{
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 20px;
+        right: 20px;
         font-size: 20px;
         font-weight: bold;
     
@@ -221,8 +226,8 @@
     
     #hiscoreBox{
         position: absolute;
-        top: 40px;
-        right: 10px;
+        top: 50px;
+        right: 20px;
         font-size: 20px;
         font-weight: bold;
     
@@ -234,7 +239,7 @@
        }
      .bgC-PPB{
         top: 13px;
-        left: 90px;
+        left: 92px;
     }
     .play-pause-line{
         top: 23px;
@@ -243,10 +248,10 @@
     .container input[type="checkbox"]{
         position: absolute;
         top: 15px;
-        left: 95px;
+        left: 97px;
     }       
     .con-buttons{
-        top: 640px;
-        left: 130px;
+        top: 613px;
+        align-items: center;
     }
 }

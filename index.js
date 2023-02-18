@@ -23,9 +23,6 @@ else {
 }
   }
 
-
-
-
 food = {x: 6, y: 7};
 
 // Game Functions
