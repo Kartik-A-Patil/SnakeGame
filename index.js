@@ -50,23 +50,22 @@ function isCollide(snake) {
         
     return false;
 }
-function gameEngine(){
+async function gameEngine(){
     // Part 1: Updating the snake array & Food
     if(isCollide(snakeArr)){
-        gameOverSound.play();
+        await gameOverSound.play();
         musicSound.pause();
         inputDir =  {x: 0, y: 0}; 
         setTimeout(() => {
             alert("Game Over. Press any key to play again!");
           }, 700);
-       
         snakeArr = [{x: 13, y: 15}];
         score = 0; 
     }
 
     // If you have eaten the food, increment the score and regenerate the food
     if(snakeArr[0].y === food.y && snakeArr[0].x ===food.x){
-        foodSound.play();
+        await foodSound.play();
         score += 1;
         if(score>hiscoreval){
             hiscoreval = score;
@@ -158,23 +157,27 @@ window.addEventListener('keydown', e =>{
     }
 
 });
-function up() {
+const up = () =>  {
+    moveSound.play();
     inputDir.x = 0;
     inputDir.y = -1;
-    moveSound.play();
+    
 }
-function down() {
+const down = () => {
+    moveSound.play();
     inputDir.x = 0;
     inputDir.y = 1;
-    moveSound.play();
+    
 }
-function left() {
+const left = () => {
+    moveSound.play();
     inputDir.x = -1;
     inputDir.y = 0;
-    moveSound.play();
+    
 }
-function right() {
+const right =() => {
+    moveSound.play();
     inputDir.x = 1;
     inputDir.y = 0;
-    moveSound.play();
+    
 }
